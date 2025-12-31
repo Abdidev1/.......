@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2026, Bestie! ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #ffafcc;
+            --soft-white: #fffcf2;
+            --rose-gold: #e29578;
+            --dark-text: #4a4e69;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fef1f2 0%, #ffdeeb 100%);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: fixed;
+            color: var(--pink);
+            font-size: 20px;
+            animation: float 6s linear infinite;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d63384;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .count-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .personal-note {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 175, 204, 0.3);
+            border: 2px solid var(--pink);
+        }
+
+        .photo-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        button {
+            background-color: #ff85a1;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #f75c7e;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        for (let i = 0; i < 20; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '🌸';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.delay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <header>
+        <div class="hero-text">Cheers to Another Year</div>
+        <h1>Happy 2026, Bestie! ✨</h1>
+        <p>New year, same us (but better). Let's make this one iconic.</p>
+        
+        <div class="countdown">
+            <div class="count-box"><span id="days">00</span>days</div>
+            <div class="count-box"><span id="hours">00</span>hrs</div>
+            <div class="count-box"><span id="mins">00</span>mins</div>
+        </div>
+    </header>
+
+    <section class="personal-note">
+        <div class="photo-placeholder">
+            <img src="https://via.placeholder.com/200" alt="Us" style="width:100%; height:100%; object-fit: cover;">
+        </div>
+        <h2>To my favorite human,</h2>
+        <p>I couldn't imagine heading into 2026 without you by my side. Thank you for all the laughs, the late-night talks, and for always being you. Here's to more adventures, more coffee dates, and more memories!</p>
+        <button onclick="alert('I love you to the moon and back! 💖')">Click for a Hug</button>
+    </section>
+
+    <footer>
+        Made with ❤️ for my Best Friend
+    </footer>
+
+    <script>
+        // Simple Countdown Timer
+        const targetDate = new Date("January 1, 2026 00:00:00").getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerHTML = d;
+            document.getElementById("hours").innerHTML = h;
+            document.getElementById("mins").innerHTML = m;
+        }, 1000);
+    </script>
+</body>
+</html>
